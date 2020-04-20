@@ -31,5 +31,17 @@ class User extends Authenticatable
 
     public function photo(){
         return $this->belongsTo('App\Photo');
-    }    
+    }
+
+    public function is_Admin(){
+       if($this->role->name == 'Administrator' && $this->is_active==1){
+        return true;
+       }
+       return false;
+    }
+
+    // display posts
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 }

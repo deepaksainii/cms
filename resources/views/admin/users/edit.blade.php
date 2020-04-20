@@ -31,11 +31,22 @@
 		{!!Form::label('Password')!!}
 		{!!Form::password('password',['class'=>'form-control'])!!}
 	</div>
+
 	<div class="form-group">
-		{!!Form::submit('Update',['class'=>'btn btn-primary'])!!}
+		{!!Form::submit('Update User',['class'=>'btn btn-primary col-md-6'])!!}
+	</div>   
+
+	{!!Form::close()!!}
+
+    <!-- Delete User Form -->
+	{!!Form::open(['method'=>'Delete','action' =>['AdminUsersController@destroy',$user->id]])!!}
+	<div class="form-group">
+		{!!Form::submit('Delete User',['class'=>'btn btn-danger col-md-6'])!!}
 	</div>
 	{!!Form::close()!!}
+
 	@include('includes.form_error')
+	
 </div>
 
 
